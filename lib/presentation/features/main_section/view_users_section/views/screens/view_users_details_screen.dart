@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:redoq/data/data_sources/local_data_sources.dart';
-import 'package:redoq/presentation/main_section/view_users_section/views/widgets/redoq_app_bar.dart';
-import 'package:redoq/presentation/main_section/view_users_section/views/widgets/user_details_expansion_tile_widget.dart';
-import 'package:redoq/presentation/main_section/view_users_section/views/widgets/user_details_screen_appbar_expand_button.dart';
+import 'package:redoq/presentation/widgets/redoq_app_bar.dart';
+import 'package:redoq/presentation/features/main_section/view_users_section/views/widgets/user_details_expansion_tile_widget.dart';
+import 'package:redoq/presentation/features/main_section/view_users_section/views/widgets/user_details_screen_appbar_expand_button.dart';
 import 'package:redoq/utils/constants/paddings.dart';
 import 'package:redoq/utils/constants/sized_boxes.dart';
 

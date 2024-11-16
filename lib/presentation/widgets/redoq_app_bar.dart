@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:redoq/presentation/main_section/view_users_section/views/widgets/app_bar_title_widget.dart';
+import 'package:redoq/presentation/widgets/app_bar_title_widget.dart';
 
 class RedoqAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;

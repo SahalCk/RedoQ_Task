@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:redoq/config/routes/route_names.dart';
+import 'package:redoq/presentation/routes/route_names.dart';
 import 'package:redoq/model/entities/user_model.dart';
 import 'package:redoq/utils/constants/colors.dart';
 import 'package:redoq/utils/constants/sized_boxes.dart';

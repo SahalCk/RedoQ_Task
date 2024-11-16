@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:redoq/config/routes/route_config.dart';
-import 'package:redoq/config/theme/redoq_app_theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:redoq/presentation/routes/route_config.dart';
+import 'package:redoq/presentation/theme/redoq_app_theme.dart';
+import 'package:redoq/presentation/features/onboarding_section/splash_screen_section/bloc/splash_screen_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() {
@@ -12,14 +14,17 @@ class RedoQApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveSizer(
-      builder: (context, orientation, screenType) {
-        return MaterialApp.router(
-            title: 'RedoQ App',
-            debugShowCheckedModeBanner: false,
-            theme: RedoqAppTheme.lightTheme,
-            routerConfig: RedoqRouteConfig.routeConfig);
-      },
+    return MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => SplashScreenBloc())],
+      child: ResponsiveSizer(
+        builder: (context, orientation, screenType) {
+          return MaterialApp.router(
+              title: 'RedoQ App',
+              debugShowCheckedModeBanner: false,
+              theme: RedoqAppTheme.lightTheme,
+              routerConfig: RedoqRouteConfig.routeConfig);
+        },
+      ),
     );
   }
 }
