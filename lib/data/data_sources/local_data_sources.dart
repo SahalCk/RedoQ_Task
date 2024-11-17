@@ -1,7 +1,7 @@
 import 'package:redoq/model/entities/user_model.dart';
 
 class LocalDataSources {
-  final List<UserModel> _users = [
+  static List<UserModel> _users = [
     UserModel(
       userId: '1.0.0.0.0',
       userName: 'Richard E. Meyer',
@@ -375,4 +375,5 @@ class LocalDataSources {
   ];
 
   List<UserModel> get getUsers => _users;
+  set setUsers(List<UserModel> users) => _users = users;
 }

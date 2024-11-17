@@ -1,7 +1,7 @@
 class UserModel {
   final String userId;
-  final String userName;
-  final String userAge;
+  String userName;
+  String userAge;
   final List<UserModel>? child;
 
   UserModel(

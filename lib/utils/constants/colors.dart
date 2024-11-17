@@ -8,13 +8,8 @@ const Color blackColor = Colors.black;
 const Color whiteColor = Colors.white;
 
 //lighth theme
-const Color lightThemeBackgroundColor = Color.fromARGB(255, 255, 255, 255);
-const Color lightThemeSecondaryColor = Color.fromARGB(255, 236, 236, 236);
-const Color lightThemeTextColor = Color.fromARGB(255, 2, 2, 2);
-const Color lightThemeSubTextColor = Color.fromARGB(255, 119, 119, 119);
+const Color backgroundColor = Color.fromARGB(255, 255, 255, 255);
+const Color secondaryColor = Color.fromARGB(255, 236, 236, 236);
+const Color textColor = Color.fromARGB(255, 2, 2, 2);
+const Color subTextColor = Color.fromARGB(255, 119, 119, 119);
 const Color descriptionTextColor = Color.fromARGB(255, 192, 192, 192);
-
-//dark theme
-const Color darkThemeBackgroundColor = Color(0xFF161616);
-const Color darkThemeSecondaryColor = Color(0xFF292929);
-const Color darkThemeTextColor = Color(0xFFFFFFFF);

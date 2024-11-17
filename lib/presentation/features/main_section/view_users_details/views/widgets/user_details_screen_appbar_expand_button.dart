@@ -12,25 +12,26 @@ class UserDetailsScreenAppBarExpandButton extends StatefulWidget {
 
 class _UserDetailsScreenAppBarExpandButtonState
     extends State<UserDetailsScreenAppBarExpandButton> {
-  bool isExpanded = false;
+  bool _isExpanded = false;
+
   @override
   Widget build(BuildContext context) {
     return IconButton(
         onPressed: () {
           setState(() {
-            isExpanded = !isExpanded;
+            _isExpanded = !_isExpanded;
           });
         },
         icon: AnimatedSwitcher(
           duration: Durations.short2,
           switchInCurve: Curves.linear,
           child: Icon(
-              key: ValueKey(isExpanded),
-              isExpanded
+              key: ValueKey(_isExpanded),
+              _isExpanded
                   ? Icons.expand_less_rounded
                   : Icons.expand_more_rounded,
               size: 21.sp,
-              color: lightThemeTextColor),
+              color: textColor),
         ));
   }
 }

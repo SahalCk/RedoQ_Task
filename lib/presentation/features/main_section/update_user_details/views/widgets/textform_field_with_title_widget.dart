@@ -25,23 +25,22 @@ class TextFormFieldWithTitleWidget extends StatelessWidget {
             style: TextStyle(
                 fontSize: 15.3.sp,
                 fontWeight: FontWeight.w500,
-                color: lightThemeSubTextColor)),
+                color: subTextColor)),
         const SizedBox(height: 12),
         TextFormField(
           controller: controller,
           validator: (value) {
             if (value!.isEmpty) {
-              return 'Please enter $title';
+              return 'Please Enter $title';
             }
             return null;
           },
           keyboardType: textInputType,
-          style: TextStyle(color: lightThemeTextColor, fontSize: 15.sp),
+          style: TextStyle(color: textColor, fontSize: 15.sp),
           textInputAction:
               isLast == true ? TextInputAction.done : TextInputAction.next,
           decoration: InputDecoration(
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 15, vertical: 16),
+              contentPadding: const EdgeInsets.all(15),
               hintText: hint,
               hintStyle: TextStyle(color: hintColor, fontSize: 15.sp),
               enabledBorder: OutlineInputBorder(
@@ -49,7 +48,10 @@ class TextFormFieldWithTitleWidget extends StatelessWidget {
                   borderSide: const BorderSide(color: borderColor)),
               focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(9),
-                  borderSide: const BorderSide(color: primaryColor))),
+                  borderSide: const BorderSide(color: primaryColor)),
+              errorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(9),
+                  borderSide: const BorderSide(color: Colors.red))),
         )
       ],
     );

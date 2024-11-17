@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:redoq/presentation/routes/route_names.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:redoq/presentation/features/main_section/view_users_details/bloc/view_users_details_screen_bloc.dart';
 import 'package:redoq/model/entities/user_model.dart';
 import 'package:redoq/utils/constants/colors.dart';
 import 'package:redoq/utils/constants/sized_boxes.dart';
@@ -49,8 +49,8 @@ class _UserDetailsExpansionTileWidgetState
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
             side: const BorderSide(color: Colors.transparent)),
-        backgroundColor: lightThemeBackgroundColor,
-        collapsedBackgroundColor: lightThemeBackgroundColor,
+        backgroundColor: backgroundColor,
+        collapsedBackgroundColor: backgroundColor,
         onExpansionChanged: (value) {
           if (widget.user.child != null) {
             setState(() {
@@ -65,11 +65,11 @@ class _UserDetailsExpansionTileWidgetState
                 style: TextStyle(
                     fontSize: 16.sp,
                     letterSpacing: 0,
-                    color: lightThemeSubTextColor,
+                    color: subTextColor,
                     fontWeight: FontWeight.w500)),
-            Text('${widget.user.userAge} years old',
+            Text('${widget.user.userAge} Years Old',
                 style: TextStyle(
-                    fontSize: 14.5.sp,
+                    fontSize: 14.3.sp,
                     letterSpacing: 0,
                     color: descriptionTextColor,
                     fontWeight: FontWeight.w500)),
@@ -78,28 +78,33 @@ class _UserDetailsExpansionTileWidgetState
         trailing: Wrap(
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
-            IconButton(
-              onPressed: () {
-                context.pushNamed(RedoqRouteNames.updateUserDetailsScreen,
-                    pathParameters: {'userId': widget.user.userId});
-              },
-              icon: Image.asset('assets/edit.png', height: 18),
-            ),
-            IconButton(
-                onPressed: () {
-                  if (widget.user.child != null) {
-                    setState(() {
-                      if (expansionTileController.isExpanded) {
-                        expansionTileController.collapse();
-                        isExpanded = false;
-                      } else {
-                        expansionTileController.expand();
-                        isExpanded = true;
-                      }
-                    });
-                  }
+            InkWell(
+                onTap: () {
+                  context
+                      .read<ViewUsersDetailsScreenBloc>()
+                      .add(EditButtonClickedEvent(userId: widget.user.userId));
                 },
-                icon: AnimatedSwitcher(
+                child: Padding(
+                  padding: const EdgeInsets.all(4.5),
+                  child: Image.asset('assets/edit.png', height: 17),
+                )),
+            InkWell(
+              onTap: () {
+                if (widget.user.child != null) {
+                  setState(() {
+                    if (expansionTileController.isExpanded) {
+                      expansionTileController.collapse();
+                      isExpanded = false;
+                    } else {
+                      expansionTileController.expand();
+                      isExpanded = true;
+                    }
+                  });
+                }
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(4.5),
+                child: AnimatedSwitcher(
                   duration: Durations.short2,
                   switchInCurve: Curves.linear,
                   child: Icon(
@@ -107,9 +112,11 @@ class _UserDetailsExpansionTileWidgetState
                       isExpanded
                           ? Icons.expand_less_rounded
                           : Icons.expand_more_rounded,
-                      size: 28,
-                      color: lightThemeTextColor),
-                )),
+                      size: 27,
+                      color: textColor),
+                ),
+              ),
+            )
           ],
         ),
         children: widget.user.child != null

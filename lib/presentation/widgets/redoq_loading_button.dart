@@ -15,7 +15,7 @@ class RedoqLoadingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LoadingBtn(
-        height: height ?? 56,
+        height: height ?? 55,
         width: Adaptive.w(100),
         color: primaryColor,
         borderRadius: 9,
